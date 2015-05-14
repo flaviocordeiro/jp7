@@ -1,0 +1,53 @@
+{include file="view/header.html"}
+<div class="container">
+    <h1>Seja bem vindo!</h1>
+    <p>Atenção a primeira linha do arquivo se destina ao cabeçalho pré-estabelecido.</p>
+    <p>Por favor, submeta o seu arquivo para que possamos processá-lo:</p>
+    <!-- AQUI VAI O FORMULARIO -->
+    <form method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="exampleInputFile">Arquivo:</label>
+            <input type="file" name="arquivo" id="exampleInputFile" />
+            <input type="hidden" name="processarArquivo" value="1" />
+        </div>
+        <input type="submit" value="Processar" class="btn btn-default" />
+    </form>
+</div>
+</div>
+
+<div class="container">
+    <table class="table table-resposive">
+        <thead>
+            <tr>
+                <th>Cliente:</th>
+                <th>Descrição:</th>
+                <th>Preço:</th>
+                <th>Quantidade:</th>
+                <th>Endereço Loja:</th>
+                <th>Nome da Loja:</th>
+                <th>Receita Bruta:</th>
+            </tr>
+        </thead>
+        <tbody>
+            {foreach from=$lista item=row}
+                <tr>
+                    <td>{$row.nome_cliente}</td>
+                    <td>{$row.descricao}</td>
+                    <td>R$ {$row.preco|number_format:2:",":"."}</td>
+                    <td>{$row.quantidade}</td>
+                    <td>{$row.endereco_loja}</td>
+                    <td>{$row.nome_loja}</td>
+                    <td>R$ {$row.receitaBruta|number_format:2:",":"."} </td>
+                    
+                </tr>
+            {/foreach}
+        </tbody>
+    </table>
+    <hr>
+
+    <footer>
+        <p>&copy; 2015. Flávio Cordeiro.</p>
+    </footer>
+</div> <!-- /container -->
+
+{include file="view/header.html"}
